@@ -38,12 +38,9 @@ def Start():
 def ImportKey():
 	try:
 		ReadKey()
-		os.system("cls")
 	except:
 		CreateKey()
 		ReadKey()
-		os.system("cls")
-	
 def ReadKey():
 	global letters
 
@@ -52,6 +49,7 @@ def ReadKey():
 	letters = []
 	for i in keySimbols:
 		letters.append(i)
+	os.system("cls")
 def CreateKey():
 	UsedChar = []
 	RangeNumber = len(Simbols)
@@ -63,6 +61,7 @@ def CreateKey():
 				f.write(str(RandomChar))
 			UsedChar.append(RandomChar)
 			RangeNumber += 1
+	os.system("cls")
 
 def Encrypt():
 	global letters
