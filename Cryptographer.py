@@ -1,7 +1,7 @@
 import os 
 import random
 
-Simbols = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю']
+simbols = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю']
 comands = ["Encrypt", "Decipher", "Clear", "Quit"]
 letters = []
 number = 1
@@ -20,16 +20,16 @@ def Start():
 	Type = input("\nEnter type: ")
 
 	
-	if (Type == "0"):
+	if (Type == str(comands.index("Encrypt"))):
 		Encrypt()
-	elif (Type == "1"):
+	elif (Type == str(comands.index("Decipher"))):
 		Decipher()
 
 
-	elif (Type == "2"):
+	elif (Type == str(comands.index("Clear"))):
 		os.system("cls")
 		Welcome()
-	elif (Type == "3"):
+	elif (Type == str(comands.index("Quit"))):
 		quit()
 	else:
 		print("I dont know this command!")
@@ -52,15 +52,17 @@ def ReadKey():
 	os.system("cls")
 def CreateKey():
 	UsedChar = []
-	RangeNumber = len(Simbols)
+	i = 0
 
-	for i in range(RangeNumber):
-		RandomChar = random.choice(Simbols)
+	while True:
+		RandomChar = random.choice(simbols)
 		if (RandomChar not in UsedChar):
 			with open("key.txt", "a") as f:
-				f.write(str(RandomChar))
+				f.write(RandomChar)
 			UsedChar.append(RandomChar)
-			RangeNumber += 1
+			i += 1
+		if (i == len(simbols)):
+			break
 	os.system("cls")
 
 def Encrypt():
@@ -106,3 +108,4 @@ def Decipher():
 	Start()
 
 Welcome()
+
