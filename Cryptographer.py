@@ -73,16 +73,10 @@ def Encrypt():
 
 	for i in message:
 		if (i in letters):
-			if (i in letters[-1]):
-				if (i in letters):
-					text += letters[0]
-			else:
-				i = letters.index(i) - number
-				text += letters[i]
-		elif (i not in letters):
-			i = i
+			i = letters.index(i) - number
+			text += letters[i]
+		else:
 			text += i
-		
 
 	print(str(text))
 	Start()
@@ -94,18 +88,12 @@ def Decipher():
 
 	for i in message:
 		if (i in letters):
-			if (i in letters[-1]):
-				if (i in letters):
-					text += letters[0]
-			else:
-				i = letters.index(i) + number
-				text += letters[i]
-		elif (i not in letters):
-			i = i
+			i = letters.index(i) + number
+			text += letters[i]
+		else:
 			text += i
 
 	print(str(text))
 	Start()
 
 Welcome()
-
