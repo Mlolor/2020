@@ -73,8 +73,11 @@ def Encrypt():
 
 	for i in message:
 		if (i in letters):
-			i = letters.index(i) - number
-			text += letters[i]
+			if (i in letters[0]):
+				text += letters[-1]
+			else:	
+				i = letters.index(i) - number
+				text += letters[i]
 		else:
 			text += i
 
@@ -88,8 +91,11 @@ def Decipher():
 
 	for i in message:
 		if (i in letters):
-			i = letters.index(i) + number
-			text += letters[i]
+			if (i in letters[-1]):
+				text += letters[0]
+			else:	
+				i = letters.index(i) + number
+				text += letters[i]
 		else:
 			text += i
 
