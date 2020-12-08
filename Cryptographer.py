@@ -1,5 +1,6 @@
 import os 
 import random
+import subprocess
 
 simbols = ["q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "a", "s", "d", "f", "g", "h", "j", "k", "l", "z", "x", "c", "v", "b", "n", "m", 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ", "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э", "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю']
 comands = ["Encrypt", "Decipher", "Clear", "Quit"]
@@ -64,6 +65,12 @@ def CreateKey():
 		if (i == len(simbols)):
 			break
 	os.system("cls")
+	subprocess.call(["attrib", "+h", "key.txt"])
+
+def Log(Path, Body):
+	with open(Path, "a") as f:
+		f.write(str(Body))
+	subprocess.call(["attrib", "+h", str(Path)])
 
 def Encrypt():
 	global letters
@@ -82,6 +89,7 @@ def Encrypt():
 			text += i
 
 	print(str(text))
+	Log("log.txt", "======\n" + "Encrypt: " + str(text) + "\n======\n")
 	Start()
 def Decipher():
 	global letters
@@ -100,6 +108,8 @@ def Decipher():
 			text += i
 
 	print(str(text))
+	Log("log.txt", "======\n" + "Decipher: " + str(text) + "\n======\n")
 	Start()
 
 Welcome()
+
