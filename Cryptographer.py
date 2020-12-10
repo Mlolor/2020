@@ -65,11 +65,6 @@ def CreateKey():
 	os.system("cls")
 	subprocess.call(["attrib", "+h", "key.txt"])
 
-def Log(Path, Body):
-	with open(Path, "a") as f:
-		f.write(str(Body))
-	subprocess.call(["attrib", "+h", str(Path)])
-
 def Encrypt():
 	global letters
 
@@ -87,7 +82,6 @@ def Encrypt():
 			text += i
 
 	print(str(text))
-	Log("log.txt", "======\n" + "Encrypt: " + str(text) + "\n======\n")
 	Start()
 def Decipher():
 	global letters
@@ -106,8 +100,6 @@ def Decipher():
 			text += i
 
 	print(str(text))
-	Log("log.txt", "======\n" + "Decipher: " + str(text) + "\n======\n")
 	Start()
 
 Welcome()
-
