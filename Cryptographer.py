@@ -9,13 +9,13 @@ number = 1
 
 def Welcome():
 	ImportKey()
-	print ("// Commands //\n")
+	print ("== Commands ==\n")
 
 	for i in comands:
 		i = comands.index(i)
 		print(" " + str(i) + "." + comands[i])
 
-	print ("\n// Commands //")
+	print ("\n== Commands ==")
 	Start()
 def Start():
 	Type = input("\nEnter type: ")
