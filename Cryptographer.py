@@ -1,23 +1,35 @@
 import os 
+import time
 import random
 import subprocess
 
 simbols = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
-letters = ""
 comands = ["Encrypt", "Decipher", "Clear", "Quit"]
+letters = ""
 number = 1
 
-def Welcome():
+def Start():
 	ImportKey()
-	print ("== Commands ==\n")
+	Welcome(logo=True)
+def Welcome(logo=False):
+	if (logo == True):
+		for i in range(6,0,-1):
+			print("=======================")
+			print("== By vk.comnikita06 ==")
+			print("=======================\n")
 
+			print(f"Wait {i} seconds!")
+			
+			time.sleep(1)
+			os.system("cls")
+
+	print ("== Commands ==\n")
 	for i in comands:
 		i = comands.index(i)
 		print(" " + str(i) + "." + comands[i])
-
 	print ("\n== Commands ==")
-	Start()
-def Start():
+	Info()
+def Info():
 	Type = input("\nEnter type: ")
 
 	
@@ -34,7 +46,7 @@ def Start():
 		quit()
 	else:
 		print("I dont know this command!")
-		Start()
+		Info()
 
 def ImportKey():
 	try:
@@ -82,7 +94,7 @@ def Encrypt():
 			text += i
 
 	print(str(text))
-	Start()
+	Info()
 def Decipher():
 	global letters
 
@@ -100,6 +112,6 @@ def Decipher():
 			text += i
 
 	print(str(text))
-	Start()
+	Info()
 
-Welcome()
+Start()
