@@ -15,7 +15,7 @@ def Welcome(logo=False):
 	if (logo == True):
 		for i in range(6,0,-1):
 			print("=======================")
-			print("== By vk.comnikita06 ==")
+			print("==     By Mlolor     ==")
 			print("=======================\n")
 
 			print(f"Wait {i} seconds!")
