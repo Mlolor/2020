@@ -4,7 +4,7 @@ import random
 import subprocess
 
 simbols = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNMёйцукенгшщзхъфывапролджэячсмитьбюЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ"
-comands = ["Encrypt", "Decipher", "Clear", "Quit"]
+comands = ["Encrypt", "Decrypt", "Clear", "Quit"]
 letters = simbols
 numberRange = 1
 
@@ -31,9 +31,9 @@ def Menu_Input_Command():
 	inputCommand = input("\nEnter type: ")
 
 	if (inputCommand == str(comands.index("Encrypt"))):
-		Decipher(1)
-	elif (inputCommand == str(comands.index("Decipher"))):
-		Decipher(-1)
+		Decrypt(1)
+	elif (inputCommand == str(comands.index("Decrypt"))):
+		Decrypt(-1)
 	elif (inputCommand == str(comands.index("Clear"))):
 		os.system("cls")
 		Menu()
@@ -42,7 +42,7 @@ def Menu_Input_Command():
 	else:
 		print("I dont know this command!")
 		Menu_Input_Command()
-def Decipher(dec):
+def Decrypt(dec):
 	text = input("Enter text: ")
 	dataText = ""
 
