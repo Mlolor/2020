@@ -18,8 +18,8 @@ def search(oPath, nPath):
 			if (old[i] != new[i]):
 				print("=" * size_o)
 				print(f"line: ({i + 1})\n\n")
-				print(f"old:\n{old[i]}")
-				print(f"new:\n{new[i]}")
+				print(f"{ARGUMENTS[1]}:\n{old[i]}")
+				print(f"{ARGUMENTS[2]}:\n{new[i]}")
 				print("=" * size_o)
 				
 				err += 1
